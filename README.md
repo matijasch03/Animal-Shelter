@@ -1,125 +1,113 @@
-🐾 Animal Protection Association Application
-This project is developed as part of the Software Specification and Modeling course at SIIT. It is a web application designed to support the operations of an animal protection association (focused on pets), enabling various roles and interactions around animal care, adoption, and support.
+# 🐾 Animal Protection Association Application
 
-📌 Purpose
-The application is intended to simulate the functionality of a fictional animal protection organization, including different user roles and operations related to animal welfare.
+> Developed as a project for the **Software Specification and Modeling** course at **SIIT**.
 
-👥 User Roles
-Admin
+This web application simulates the operations of an **animal protection association**, supporting various roles such as administrators, volunteers, members, and guests. The platform facilitates animal care, adoption, donation, and communication.
 
-Volunteers
+---
 
-Members (Registered Users)
+## 📌 Purpose
 
-Guests
+The app supports a fictional association focused on animal (pet) welfare, enabling efficient communication and task management across different user roles.
 
-🧑‍💼 Admin Functionalities
-Creates the Association entity.
+---
 
-Creates the first volunteer and delegates all further responsibilities to them and future volunteers.
+## 👥 User Roles
 
-🧑‍🤝‍🧑 Volunteer Functionalities
-Add/edit/delete animal posts (via form).
+- **Admin**
+- **Volunteers**
+- **Members (Registered Users)**
+- **Guests**
 
-Vote on membership requests from users who want to become volunteers.
+---
 
-Vote to remove other volunteers (initiated by one, decided by voting).
+## 🧑‍💼 Admin Functionalities
 
-Review and approve/reject animal post requests submitted by members.
+- Create the **Association** entity.
+- Create the **first volunteer**, who then manages further operations.
 
-Rate and comment on members.
+---
 
-Like/comment on animal posts.
+## 🧑‍🤝‍🧑 Volunteer Functionalities
 
-Import daily bank transaction data into the app (to avoid manual tracking).
+- Manage animal posts (**Create, Read, Update, Delete**).
+- Approve/reject requests to become volunteers (voting system).
+- Vote to remove existing volunteers.
+- Review and approve/reject post requests from members.
+- Rate and comment on members.
+- Like and comment on animal posts.
+- Import daily bank statements into the app.
+- Track which animals have been adopted and by whom.
+- Rate experiences with adopters.
+- Optionally maintain a **blacklist** of users (e.g., poorly rated).
+- Resign from volunteer role.
+- Approve new user registration requests.
+- Send broadcast messages to all users.
+- Block or deactivate users (instead of deletion).
+- Soft-delete inappropriate posts (e.g., trolling).
 
-View adoption status and history (which user adopted which animal).
+---
 
-Rate the adoption experience with users.
+## 🐶 Animal Post / Request Attributes
 
-Optionally manage a blacklist of users (e.g., those rated poorly).
+- `type`: e.g., dog, cat
+- `breed`: (optional)
+- `healthStatus`: healthy, sick, injured, etc.
+- `yearOfBirth`: (optional, estimated)
+- `isAdopted`: adoption status (can be reversed)
+- `media`: images/videos (optional)
+- `color`
+- `estimatedAge`
+- `location`: where the animal was found or is currently
+- `authorInfo`: hidden from users
+- `status`: `APPROVED` or `REJECTED`
 
-Resign from volunteer role (self-remove).
+---
 
-Approve user registration requests.
+## 👤 Member Functionalities
 
-Send broadcast messages to all users.
+- Submit post requests or edit requests.
+- Make anonymous donations (e.g., for veterinary treatment).
+- Submit requests for:
+  - **Adoption**
+  - **Temporary fostering** (select care dates)
+- Rate and review animals after fostering (1–5 or comment).
+- Rate and comment on animal posts for transparency.
+- Request to become a volunteer.
+- Send private messages to:
+  - Volunteers
+  - Anonymous post authors
 
-Soft-delete inappropriate posts (e.g., trolling).
+---
 
-Block or change status of users instead of deleting them.
+## 🧭 Guest Functionalities
 
-🐶 Animal Post / Request Attributes
-Type (dog, cat, etc.)
+- Browse and search all public animal posts.
+- Register (by submitting a request).
 
-Breed (optional)
+---
 
-Health status (healthy, sick, missing limb, etc.)
+## 🏢 Association Attributes
 
-Year of birth (not required to be exact)
+- `name`
+- `contactInfo`: email, phone number, Instagram
+- `address`
+- `bankAccount`: 18-digit number for donations (no in-app transactions)
+- All **donations and withdrawals** are publicly visible.
+- Donation purpose is indicated via payment note (e.g., for a specific animal).
+- The app is designed for a **single association**.
 
-Adoption status (isAdopted: still shown after adoption, includes possibility of returning the animal)
+---
 
-Media: photos/videos (optional)
+## ⚙️ Non-Functional Requirements
 
-Color
+- Around 20 volunteers and several thousand registered members.
+- Moderate usage; no major performance constraints.
+- Must operate **24/7**.
+- Security: **personal data must be encoded**.
 
-Estimated age
+---
 
-Location (found or currently staying)
+## 📂 Notes
 
-Author Info: hidden from regular users
-
-Request Status: APPROVED / REJECTED
-
-👤 Member Functionalities
-Send requests for new posts or editing existing posts.
-
-Make anonymous donations (e.g., for treatment at a veterinary clinic).
-
-Submit requests for:
-
-Adoption
-
-Temporary care (select available dates)
-
-Rate animals they’ve cared for (1–5 or comment).
-
-Comment and rate animal posts to help future adopters.
-
-Request to become a volunteer.
-
-Send private messages to:
-
-Volunteers
-
-Anonymous post authors
-
-🧭 Guest Functionalities
-View and search animal posts.
-
-Submit registration request.
-
-🏢 Association Attributes
-Name
-
-Contact info: email, phone, Instagram
-
-Address
-
-Bank account number (18 digits, used for donations — no in-app payments)
-
-All donations and expenses are publicly visible.
-
-Donation purpose is specified (e.g., animal name) using the payment message field.
-
-Application supports a single association.
-
-⚙️ Non-Functional Requirements
-Expected user base: ~20 volunteers, several thousand registered members.
-
-Moderate traffic; not performance-critical.
-
-Application must run reliably 24/7.
-
-Security: encoding of personal data is required.
+This is a conceptual academic project and may not include real payment integration. All data regarding donations and animal statuses are for simulation purposes only.
