@@ -1,82 +1,125 @@
-Projekat iz predmeta Specifikacija i modeliranje softvera za SIIT
+🐾 Animal Protection Association Application
+This project is developed as part of the Software Specification and Modeling course at SIIT. It is a web application designed to support the operations of an animal protection association (focused on pets), enabling various roles and interactions around animal care, adoption, and support.
 
-Aplikacija za proizvoljno udruzenje za zastitu zivotinja (kucnih ljubimaca)
+📌 Purpose
+The application is intended to simulate the functionality of a fictional animal protection organization, including different user roles and operations related to animal welfare.
 
-- uloge: admin, volonteri, clanovi, gosti
-- pomoc: hrana, privremeno zbrinjavanje, udomljavanje, prevoz zivotinja, novac
+👥 User Roles
+Admin
 
-Korisnik (svako sem Gosta)- funkcionalnosti:
-- prijava (id, lozinka)/odjava
-- izmena licnih podataka
+Volunteers
 
-Admin - funkcionalnosti:
-- kreira entitet Udruzenja
-- kreira 1. volontera i sav dalji posao prepusta njemu (i ostalim buducim volonterima)
+Members (Registered Users)
 
-Volonteri - funkcionalnosti:
-- dodaju objavu o zivotinji (CRUD) (kroz formu)
-- odlucuju ko ce postati novi volonter (član šalje zahtev za postajanje volontera, ostali volonteri glasaju)
-- odlučuju kog volontera izbaciti (glasanjem gde jedan volonter predlozi nekog korisnika, ostali glasaju)
-- primaju zahteve za objave od clanova i odlucuje da li ih objaviti
-- ocenjuju/komentarisu clanove
-- komentarisu/lajkuju objavu
-- importuju izvod iz banke na dnevnom nivou u app kako ne bi morali rucno da se bave time
-- vide kod kog je koja zivotinja udomljena (dodatni podatak u okviru objave) - mozda prikazati spisak svih (ne)udomljenih zivotinja
-- mogu da ocene iskustvo sa tom osobom
-- opciono: kreiraju crnu listu korisnika (npr. oni sa ocenom 1-2)
-- imaju mogućnost samoizbacivanja (ne zelim vise da budem volonter)
-- odobravaju zahteve za registraciju korisnika
-- mogu da šalju poruke svima
-* Uglavnom nema brisanja, ali ima promena statusa poput blokiranja
-- mogu da logicko obrisu objave (npr. ako neko troluje)
+Guests
 
-Objava/zahtev na aplikaciji:
-Atributi:
-- vrsta (pas, macka...)
-- rasa (opciono)
-- zdravstveno stanje (zdrava, bolesna, fali noga...)
-- godina rodjenja (ne mora precizno)
-- isUdomljena (ako je udomljena i dalje ostaje objava, postoji mogucnost odustanka od udomljenja)
-- snimci/slike (opciono)
-- boja
-- starost ako moze da se ustanovi po proceni
-- lokacija gde je nadjena ili gde se trenutno nalazi
-- skriveni deo od korisnika: podaci o autoru objave
-- status zahteva: ODOBRENA/ODBIJENA
+🧑‍💼 Admin Functionalities
+Creates the Association entity.
 
-Gosti - funkcionalnosti:
-- pregled i pretraga objava (moze svaki korisnik)
-- registracija (salje se zahtev)
+Creates the first volunteer and delegates all further responsibilities to them and future volunteers.
 
-Clan (registrovani) - funkcionalnosti:
-- salju zahtev volonteru za objavu (ili za izmenu postojece objave)
-- šalju anonimne donacije za lecenje zivotinje (npr. kad su na lecenju na veterinarskoj ustanovi)
-- šalju zahtev za:
-  1. udomljavanje
-  2. privremeno zbrinjavanje (korisnik sam oznacava u kom periodu zeli da se stara o zivotinji)
-- mogu da ocene zivotinju na cuvanju: brojcano 1-5 ili komentar
-- dodaju ocenu i komenatar na objavu o zivotinji, da bi buduci vlasnik imao dodatne info
-- podnosi zahtev za postajanje volontera
-- salju privatnu poruku volonterima 
-- salju privatnu poruku anonimnom autoru objave
+🧑‍🤝‍🧑 Volunteer Functionalities
+Add/edit/delete animal posts (via form).
 
+Vote on membership requests from users who want to become volunteers.
 
+Vote to remove other volunteers (initiated by one, decided by voting).
 
-Udruzenje
-Atributi:
-- naziv
-- kontakt (email, telefon, insta)
-- adresa
-- racun u banci za uplate sa 18 cifara (funkcionalnost uplacivanja nije podrzana ovom aplikacijom, nego preko mBankinga npr.)
-* Javno se vide sve uplate i isplate
-* Preko polja za svrhu uplate se specificira zivotinja za koju se donira novac
-* Mi pokrivamo jedno udruzenje   
+Review and approve/reject animal post requests submitted by members.
 
+Rate and comment on members.
 
-Nefunkcionalni zahtevi:
+Like/comment on animal posts.
 
-- broj korisnika: oko 20 volontera i par hiljada registrovanih clanova
-- Aplikacija nije previse opterecena u vidu istovremenog pristupanja
-- Performanse nisu od velike vaznosti
-- Bitno je da aplikacija moze da radi 24/7
-- security (potreban enkoding licnih podataka)
+Import daily bank transaction data into the app (to avoid manual tracking).
+
+View adoption status and history (which user adopted which animal).
+
+Rate the adoption experience with users.
+
+Optionally manage a blacklist of users (e.g., those rated poorly).
+
+Resign from volunteer role (self-remove).
+
+Approve user registration requests.
+
+Send broadcast messages to all users.
+
+Soft-delete inappropriate posts (e.g., trolling).
+
+Block or change status of users instead of deleting them.
+
+🐶 Animal Post / Request Attributes
+Type (dog, cat, etc.)
+
+Breed (optional)
+
+Health status (healthy, sick, missing limb, etc.)
+
+Year of birth (not required to be exact)
+
+Adoption status (isAdopted: still shown after adoption, includes possibility of returning the animal)
+
+Media: photos/videos (optional)
+
+Color
+
+Estimated age
+
+Location (found or currently staying)
+
+Author Info: hidden from regular users
+
+Request Status: APPROVED / REJECTED
+
+👤 Member Functionalities
+Send requests for new posts or editing existing posts.
+
+Make anonymous donations (e.g., for treatment at a veterinary clinic).
+
+Submit requests for:
+
+Adoption
+
+Temporary care (select available dates)
+
+Rate animals they’ve cared for (1–5 or comment).
+
+Comment and rate animal posts to help future adopters.
+
+Request to become a volunteer.
+
+Send private messages to:
+
+Volunteers
+
+Anonymous post authors
+
+🧭 Guest Functionalities
+View and search animal posts.
+
+Submit registration request.
+
+🏢 Association Attributes
+Name
+
+Contact info: email, phone, Instagram
+
+Address
+
+Bank account number (18 digits, used for donations — no in-app payments)
+
+All donations and expenses are publicly visible.
+
+Donation purpose is specified (e.g., animal name) using the payment message field.
+
+Application supports a single association.
+
+⚙️ Non-Functional Requirements
+Expected user base: ~20 volunteers, several thousand registered members.
+
+Moderate traffic; not performance-critical.
+
+Application must run reliably 24/7.
+
+Security: encoding of personal data is required.
