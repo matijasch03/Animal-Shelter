@@ -2,7 +2,7 @@
 
 > Developed as a project for the **Software Specification and Modeling** course at **SIIT**.
 
-This web application simulates the operations of an **animal protection association**, supporting various roles such as administrators, volunteers, members, and guests. The platform facilitates animal care, adoption, donation, and communication.
+This Desktop application simulates the operations of an **animal protection association**, supporting various roles such as administrators, volunteers, members, and guests. The platform facilitates animal care, adoption, donation, and communication.
 
 ---
 
